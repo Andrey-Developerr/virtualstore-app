@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "428346461232",
+    "project_id": "fruit-store-ab979",
+    "storage_bucket": "fruit-store-ab979.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428346461232:android:e3c6e267ce2ea6c16eb1f5",
+        "android_client_info": {
+          "package_name": "br.com.oliveira.fruit_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428346461232-armr167vapamug8gvdls6q8rj43ff81q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy3ihVHaIvNTGhh-E-iQQDkQ6tdprd9EY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428346461232-armr167vapamug8gvdls6q8rj43ff81q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
