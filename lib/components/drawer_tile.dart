@@ -16,7 +16,7 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int currentPage = context.watch<PageManager>().page;
+    final int currentPage = context.read<PageManager>().page;
 
     return InkWell(
       onTap: () {

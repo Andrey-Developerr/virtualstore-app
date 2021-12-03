@@ -11,7 +11,7 @@ class UserManager extends ChangeNotifier {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  late User kuser;
+  late UserLogin loguser;
 
   bool _loading = false;
   bool get loading => _loading;
@@ -25,8 +25,6 @@ class UserManager extends ChangeNotifier {
       final UserCredential result = await auth.signInWithEmailAndPassword(
           email: user.email, password: user.password);
 
-      kuser = result.user!;
-
       await Future.delayed(const Duration(seconds: 3));
 
       onSucess();
@@ -36,6 +34,21 @@ class UserManager extends ChangeNotifier {
     loading = false;
   }
 
+  Future<void> signUp(
+      {required UserLogin user,
+      required Function onFail,
+      required Function onSucess}) async {
+    loading = true;
+    try {
+      final UserCredential result = await auth.createUserWithEmailAndPassword(
+          email: user.email, password: user.password);
+
+      onSucess();
+    } on FirebaseAuthException catch (e) {
+      onFail(getErrorString(e.code));
+    }
+  }
+
   set loading(bool value) {
     _loading = value;
     notifyListeners();
@@ -43,6 +56,5 @@ class UserManager extends ChangeNotifier {
 
   Future<void> _loadCurrentUser() async {
     var kuser = FirebaseAuth.instance.currentUser;
-    print(kuser?.uid);
   }
 }

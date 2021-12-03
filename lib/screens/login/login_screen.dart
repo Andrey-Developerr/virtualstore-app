@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
+
   LoginScreen({Key? key}) : super(key: key);
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -95,8 +96,9 @@ class LoginScreen extends StatelessWidget {
                               if (formKey.currentState!.validate()) {
                                 userManager.signIn(
                                     user: UserLogin(
-                                        email: emailController.text,
-                                        password: passController.text),
+                                      email: emailController.text,
+                                      password: passController.text,
+                                    ),
                                     onFail: (e) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(SnackBar(
@@ -106,7 +108,8 @@ class LoginScreen extends StatelessWidget {
                                       ));
                                     },
                                     onSucess: () {
-                                      // TODO: FECHAR TELA DE LOGIN
+                                      Navigator.of(context)
+                                          .pushNamed('/products');
                                     });
                               }
                             },
