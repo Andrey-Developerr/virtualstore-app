@@ -1,5 +1,5 @@
 
-# fruit_store
+# Virtual Store - APP
 
 Projeto Flutter de loja virtual simples.
 
